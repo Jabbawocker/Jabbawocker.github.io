@@ -11,7 +11,7 @@ PagerDuty.api({token: 'su+5n_XdrViGnYFELTyxQ', endpoint: '/services'})
   }); 
 
 fileInput.addEventListener('change', readFile);
-  try {
+/*  try {
     Papa.parse(fileInput.files[0], {
     header: true,
     download: true,
@@ -22,4 +22,17 @@ fileInput.addEventListener('change', readFile);
     }})
 } catch (error) {
   window.alert(error,"test");
+};
+*/
+try {
+  Papa.parse(fileInput.files[0], {
+  header: true,
+  download: true,
+  dynamicTyping: true,
+  complete: function(results) {
+    console.log(results);
+    data = results.data;
+  }})
+} catch (error) {
+window.alert(error,"test");
 };
